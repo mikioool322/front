@@ -24,4 +24,11 @@
   width: 30%;
   gap: 36px;
   margin: 156px auto;
+  flex: 1 !important;
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 12px;
+  right: 24px;
 }

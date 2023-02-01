@@ -133,7 +133,7 @@ export default function Informations() {
           className={styles.select}
           options={plec}
         />
-        <Link href="/choose" className={styles.nextButton}>
+        <Link href="/choose-parameters" className={styles.nextButton}>
           <BasicButton text="Dalej" fontSize={24} />
         </Link>
       </div>

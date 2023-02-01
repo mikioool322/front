@@ -1,5 +1,5 @@
 import Banner from "@/components/Banner/Banner";
-import styles from "./choose.module.css";
+import styles from "./choose-parameters.module.css";
 import { useState } from "react";
 import BasicButton from "@/components/BasicButton/BasicButton";
 import Link from "next/link";
@@ -57,7 +57,7 @@ export default function Choose() {
             </div>
           </div>
         </div>
-        <Link href="/searching" className={styles.nextButton}>
+        <Link href="/selection" className={styles.nextButton}>
           <BasicButton text="Dalej" fontSize={24} />
         </Link>
       </div>
