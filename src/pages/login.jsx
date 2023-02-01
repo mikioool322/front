@@ -12,7 +12,7 @@ export default function Login() {
 
   const handleCheckEmail = (value) => {
     setEmail(value);
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+    if (/^\w+([\.-]?\w+)*@sggw.edu.pl/.test(value)) {
       setEmailError("");
     } else setEmailError("Nieprawidłowy email!");
   };
@@ -34,7 +34,7 @@ export default function Login() {
             {emailError !== "" && (
               <div className={styles.invalid}>{emailError}</div>
             )}
-            <input placeholder="Hasło" className={styles.input} type="text" />
+            <input placeholder="Hasło" className={styles.input} type="password" />
             {passwordError === "" && (
               <div className={styles.invalid}>Nieprawidłowe hasło!</div>
             )}

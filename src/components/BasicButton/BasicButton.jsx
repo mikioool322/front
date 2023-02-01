@@ -1,9 +1,9 @@
 import styles from "./BasicButton.module.css";
-
-export default function BasicButton({ text, fontSize }) {
+import { Button } from "@mui/material"
+export default function BasicButton({ text, fontSize,onClick }) {
   return (
-    <button className={styles.button} style={{ fontSize: `${fontSize}px` }}>
+    <Button onClick ={onClick} className={styles.button} style={{ fontSize: `${fontSize}px` }}>
       {text}
-    </button>
+    </Button>
   );
 }
