@@ -1,0 +1,48 @@
+.container {
+  background-color: rgb(107, 83, 136);
+  background: linear-gradient(
+    90deg,
+    rgba(107, 83, 136, 1) 0%,
+    rgba(149, 123, 180, 1) 0%,
+    rgba(241, 231, 255, 1) 71%
+  );
+  min-height: calc(100vh - 72px);
+  padding: 36px 0px;
+  margin: -8px;
+  position: relative;
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+}
+
+.inputs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input {
+  padding: 16px 24px;
+  font-size: 24px;
+  width: 360px;
+  border-radius: 5px;
+  border: none;
+}
+
+.text {
+  font-size: 36px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.invalid {
+  color: red;
+  font-size: 18px;
+}

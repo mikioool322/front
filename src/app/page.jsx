@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner/Banner";
 import BasicButton from "@/components/BasicButton/BasicButton";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -13,8 +14,12 @@ export default function Home() {
           “STUDENCKIE RANDEWU”
         </div>
         <div className={styles.buttons}>
-          <BasicButton text="Zaloguj się" fontSize={48} />
-          <BasicButton text="Zarejestruj się" fontSize={48} />
+          <Link href="/login" style={{ display: "contents" }}>
+            <BasicButton text="Zaloguj się" fontSize={48} />
+          </Link>
+          <Link href="/registration" style={{ display: "contents" }}>
+            <BasicButton text="Zarejestruj się" fontSize={48} />
+          </Link>
         </div>
       </div>
     </>
