@@ -1,8 +1,8 @@
 import Banner from "@/components/Banner/Banner";
 import styles from "./login.module.css";
 import { useState } from "react";
-import BasicButton from "@/components/BasicButton/BasicButton";
-import Link from "next/link";
+import { Button } from "@mui/material";
+import { HttpService } from "@/components/http.service";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -16,6 +16,27 @@ export default function Login() {
       setEmailError("");
     } else setEmailError("Nieprawidłowy email!");
   };
+
+  const handlePasswordChange = (value) => {
+    setPassword(value);
+  };
+
+  const handleLogin = () => {
+      HttpService.post(
+        "http://localhost:8080/api/user/login",
+        {
+          'userEmail': email,
+          'password': password
+        }).then((response) => {
+          if (response.status === 200) {
+            NextResponse.redirect('/photo')
+          }
+        }).catch((e) => {
+          if (e.response !== undefined && e.response.status === 401) {
+            setPasswordError("Podany login i haslo nie pasuja do siebie")
+          }
+        })
+  }
 
   return (
     <>
@@ -34,15 +55,22 @@ export default function Login() {
             {emailError !== "" && (
               <div className={styles.invalid}>{emailError}</div>
             )}
-            <input placeholder="Hasło" className={styles.input} type="password" />
-            {passwordError === "" && (
-              <div className={styles.invalid}>Nieprawidłowe hasło!</div>
+            <input
+              placeholder="Hasło"
+              className={styles.input}
+              type="password"
+              onChange={(event) => handlePasswordChange(event.target.value)} />
+            {passwordError !== "" && (
+              <div className={styles.invalid}>{passwordError}</div>
             )}
           </div>
 
-          <Link href="/photo" className={styles.nextButton}>
-            <BasicButton type="submit" text="Zaloguj się" fontSize={36} />
-          </Link>
+
+          <div className={styles.nextButton}>
+            <Button variant="contained" color="primary" onClick={handleLogin}>
+              zaloguj sie
+            </Button>
+          </div>
         </form>
       </div>
     </>

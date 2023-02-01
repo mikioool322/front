@@ -102,8 +102,8 @@ const wiek = [
 ];
 
 const plec = [
-  { value: "KOBIETA", label: "KOBIETA" },
-  { value: "MĘŻCZYZNA", label: "MĘŻCZYZNA" },
+  { value: "female", label: "KOBIETA" },
+  { value: "male", label: "MĘŻCZYZNA" },
 ];
 
 export default function Informations() {
