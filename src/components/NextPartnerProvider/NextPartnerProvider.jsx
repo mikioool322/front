@@ -42,8 +42,8 @@ class NextPartnerProvider {
                                 <div>
                                     <div>Imie:{this.listOfPartners[next].userName}</div>
                                     <div>Wiek:{this.listOfPartners[next].age}</div>
-                                    <div>Kierunek:{this.degree().get(this.listOfPartners[next])}</div>
-                                    <div>Płeć: {this.listOfPartners[next].gender} </div>
+                                    <div>Kierunek:{this.degree().get(this.listOfPartners[next].degree)}</div>
+                                    <div>Płeć: {this.gender().get(this.listOfPartners[next].gender)} </div>
                                     <div>Opis: {this.listOfPartners[next].description} </div>
                                 </div>
                             </div>
