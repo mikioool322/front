@@ -18,7 +18,7 @@ export default function Selection() {
 
   const initData = () => {
     HttpService.get(
-      `http://localhost:8080/api/user/${email}/preferences`,
+      `http://tinder-sggw.herokuapp.com/api/user/${email}/preferences`,
     ).then((response) => {
       if (response.status === 200) {
         setPossiblePartners(response.data.map(d => new UserDetails(d.userEmail, d.userName, d.description, d.phoneNumber, d.photo, d.gender, d.age, d.degree)));
@@ -27,16 +27,10 @@ export default function Selection() {
     })
   };
 
-
-  const renderPhoto = () => {
-    possiblePartners.length > 0 ? (<img alt="Red dot" src={"data:image/png;base64," + possiblePartners[0].photo} />)
-      : <></>
-  };
-
   const saveAccept = () => {
     if (possiblePartners.length > 0) {
       HttpService.post(
-        "http://localhost:8080/api/user-matches/add-decision/",
+        "http://tinder-sggw.herokuapp.com/api/user-matches/add-decision/",
         {
           'selectingUserEmail': email,
           'selectedUserEmail': possiblePartners[0].userEmail,
@@ -50,7 +44,7 @@ export default function Selection() {
   const saveDecline = async () => {
     if (possiblePartners.length > 0) {
       HttpService.post(
-        "http://localhost:8080/api/user-matches/add-decision/",
+        "http://tinder-sggw.herokuapp.com/api/user-matches/add-decision/",
         {
           'selectingUserEmail':email,
           'selectedUserEmail': possiblePartners[0].userEmail,

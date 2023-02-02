@@ -15,7 +15,7 @@ export default function Match() {
 
   const initData = () => {
     HttpService.get(
-      `http://localhost:8080/api/user-matches/${email}`,
+      `http://tinder-sggw.herokuapp.com/api/user-matches/${email}`,
     ).then((response) => {
       if (response.status === 200) {
         setNextPartnerProvider(new NextPartnerProvider(response.data.map(d => new UserDetails(d.userEmail, d.userName, d.description, d.phoneNumber, d.photo, d.gender, d.age, d.degree))));

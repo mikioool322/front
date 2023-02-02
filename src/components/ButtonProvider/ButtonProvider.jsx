@@ -20,5 +20,5 @@ class ButtonProvider {
 const ButtonProviderInstance = new ButtonProvider();
 
 export {
-    ButtonProviderInstance as ButtonProvider1,
+    ButtonProviderInstance as ButtonProvider,
 };
