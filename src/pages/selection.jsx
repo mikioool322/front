@@ -13,6 +13,7 @@ export default function Selection() {
   const [possiblePartners, setPossiblePartners] = useState([]);
   const [next, setNext] = useState(0);
   const [nextPartnerProvider, setNextPartnerProvider] = useState(new NextPartnerProvider([]));
+  
   const initData = () => {
     HttpService.get(
       "http://localhost:8080/api/user/s2080@sggw.edu.pl/preferences",
@@ -53,8 +54,7 @@ export default function Selection() {
           'selectedUserEmail': possiblePartners[0].userEmail,
           'selectedUserApproved': true
         }
-      )
-      await setNext(next + 1);
+        ).then((r) => { setNext(next + 1); })
     }
   };
   const degree = new Map([

@@ -3,12 +3,14 @@ import styles from "./login.module.css";
 import { useState } from "react";
 import { Button } from "@mui/material";
 import { HttpService } from "@/components/http.service";
+import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [autenticatedUser, setAutenticatedUser] = useState(false);
 
   const handleCheckEmail = (value) => {
     setEmail(value);
@@ -22,20 +24,33 @@ export default function Login() {
   };
 
   const handleLogin = () => {
-      HttpService.post(
-        "http://localhost:8080/api/user/login",
-        {
-          'userEmail': email,
-          'password': password
-        }).then((response) => {
-          if (response.status === 200) {
-            NextResponse.redirect('/photo')
-          }
-        }).catch((e) => {
-          if (e.response !== undefined && e.response.status === 401) {
-            setPasswordError("Podany login i haslo nie pasuja do siebie")
-          }
-        })
+    HttpService.post(
+      "http://localhost:8080/api/user/login",
+      {
+        'userEmail': email,
+        'password': password
+      }).then((response) => {
+        if (response.status === 200) {
+          setAutenticatedUser(true)
+        }
+      }).catch((e) => {
+        if (e.response !== undefined && e.response.status === 401) {
+          setPasswordError("Podany login i haslo nie pasuja do siebie")
+          setAutenticatedUser(false)
+        }
+      })
+  }
+  const renderNextButtons = () => {
+    autenticatedUser ? (<>         <Link href="/selection" className={styles.backButton}>
+      <Button variant="contained" color="primary">
+        Przejdz do par
+      </Button>
+    </Link>
+      <Link href="/choose-preferences" className={styles.backButton}>
+        <Button variant="contained" color="primary">
+          Przejdz do preferencji
+        </Button>
+      </Link></>) : <></>
   }
 
   return (
@@ -64,12 +79,21 @@ export default function Login() {
               <div className={styles.invalid}>{passwordError}</div>
             )}
           </div>
-
-
           <div className={styles.nextButton}>
             <Button variant="contained" color="primary" onClick={handleLogin}>
               zaloguj sie
             </Button>
+
+            <Link href={autenticatedUser? "/selection": "/login"} className={styles.backButton}>
+              <Button  variant="contained" color="primary">
+                Przejdz do par
+              </Button>
+            </Link>
+            <Link href={autenticatedUser? "/choose-preferences": "/login"} className={styles.backButton}>
+              <Button  variant="contained" color="primary">
+                Przejdz do preferencji
+              </Button>
+            </Link>
           </div>
         </form>
       </div>

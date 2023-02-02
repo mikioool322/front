@@ -20,7 +20,6 @@ export default function Registration() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [registrationResult, setRegistrationResult] = useState("");
-
   const handleCheckEmail = (value) => {
 
     if (/^\w+([\.-]?\w+)*@sggw.edu.pl/.test(value)) {
@@ -106,9 +105,7 @@ export default function Registration() {
           'age': age,
           'degree': degree
         }).then((response) => {
-          if (response.status === 200) {
-            NextResponse.redirect('/login')
-          }
+          
         }).catch((e) => {
           if (e.response !== undefined && e.response.status === 409) {
             setRegistrationResult("Konto na podany email istnieje")
@@ -186,6 +183,11 @@ export default function Registration() {
             <Button variant="contained" color="primary" onClick={handleRegister}>
               zarejestruj sie!
             </Button>
+            <Link href="/login" className={styles.backButton}>
+              <Button variant="contained" color="primary">
+                Przejdz do logowania
+              </Button>
+            </Link>
             {registrationResult !== "" && (
               <div className={styles.invalid}>{registrationResult}</div>
             )}
