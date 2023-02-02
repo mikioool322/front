@@ -32,6 +32,7 @@ export default function Login() {
       }).then((response) => {
         if (response.status === 200) {
           setAutenticatedUser(true)
+          setPasswordError("")
         }
       }).catch((e) => {
         if (e.response !== undefined && e.response.status === 401) {
@@ -84,13 +85,13 @@ export default function Login() {
               zaloguj sie
             </Button>
 
-            <Link href={autenticatedUser? "/selection": "/login"} className={styles.backButton}>
-              <Button  variant="contained" color="primary">
+            <Link href={autenticatedUser ? `/selection/${email}` : "/login"} className={styles.backButton}>
+              <Button variant="contained" color="primary">
                 Przejdz do par
               </Button>
             </Link>
-            <Link href={autenticatedUser? "/choose-preferences": "/login"} className={styles.backButton}>
-              <Button  variant="contained" color="primary">
+            <Link href={autenticatedUser ? `/choose-preferences/${email}` : "/login"}  className={styles.backButton}>
+              <Button variant="contained" color="primary">
                 Przejdz do preferencji
               </Button>
             </Link>

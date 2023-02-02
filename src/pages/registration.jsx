@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@mui/material";
 import { HttpService } from "@/components/http.service";
 import ReactSelect from "react-select";
+import Link from "next/link";
 
 export default function Registration() {
   const [email, setEmail] = useState("");
