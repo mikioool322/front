@@ -36,7 +36,7 @@ export default function Selection() {
   const saveAccept = () => {
     if (possiblePartners.length > 0) {
       HttpService.post(
-        "http://localhost:8080//api/user-matches/add-decision/",
+        "http://localhost:8080/api/user-matches/add-decision/",
         {
           'selectingUserEmail': email,
           'selectedUserEmail': possiblePartners[0].userEmail,
@@ -50,7 +50,7 @@ export default function Selection() {
   const saveDecline = async () => {
     if (possiblePartners.length > 0) {
       HttpService.post(
-        "http://localhost:8080//api/user-matches/add-decision/",
+        "http://localhost:8080/api/user-matches/add-decision/",
         {
           'selectingUserEmail':email,
           'selectedUserEmail': possiblePartners[0].userEmail,

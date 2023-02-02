@@ -31,11 +31,11 @@ class NextPartnerProvider {
                     <div className={styles.container}>
 
                         <div className={styles.photoSection}>
-                            <FiCheck className={styles.check} onClick={saveAccept} />
+                         
                             <div className={styles.image}>
-
+                            <img alt="Red dot" src={`data:image/png;base64, ${this.listOfPartners[next].photo}`}/>
                             </div>
-                            <FiX className={styles.x} onClick={saveDecline} />
+                         
                         </div>
                         <div className={styles.informations}>
                             <div className={styles.informations}>
@@ -48,6 +48,8 @@ class NextPartnerProvider {
                                 </div>
                             </div>
                         </div>
+                        <FiCheck className={styles.check} onClick={saveAccept} />
+                        <FiX className={styles.x} onClick={saveDecline} />
                     </div></>
             ) : <></>
     }

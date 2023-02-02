@@ -1,5 +1,5 @@
 import "./globals.css";
-import "../pages/informations.module.css";
+import "../pages/login.module.css";
 
 export default function RootLayout({ children }) {
   return (
