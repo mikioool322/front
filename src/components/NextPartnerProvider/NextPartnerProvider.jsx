@@ -61,8 +61,8 @@ class NextPartnerProvider {
                     <div className={styles.container}>
                         <div className={styles.informations}>
 
-                            {this.listOfPartners.map((e) =>
-                             <div> Imie: {e.userName}, numer telefonu: {e.phoneNumber} </div>)}
+                            {this.listOfPartners.map((e, index) =>
+                             <div key={index}> Imie: {e.userName}, numer telefonu: {e.phoneNumber} </div>)}
                         </div>
                     </div>
                 </>
