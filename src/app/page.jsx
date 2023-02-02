@@ -1,3 +1,4 @@
+"use client"
 import Banner from "@/components/Banner/Banner";
 import BasicButton from "@/components/BasicButton/BasicButton";
 import styles from "./page.module.css";

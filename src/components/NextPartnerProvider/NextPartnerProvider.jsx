@@ -1,3 +1,4 @@
+"use client"
 import { FiCheck, FiX } from "react-icons/fi";
 import styles from "./NextPartnerProvider.module.css";
 

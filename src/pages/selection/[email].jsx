@@ -1,3 +1,4 @@
+'use client';
 import Banner from "@/components/Banner/Banner";
 import styles from "./selection.module.css";
 import { useState, useEffect } from "react";

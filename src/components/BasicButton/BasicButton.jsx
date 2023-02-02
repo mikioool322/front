@@ -1,3 +1,4 @@
+"use client"
 import styles from "./BasicButton.module.css";
 import { Button } from "@mui/material"
 export default function BasicButton({ text, fontSize,onClick }) {
