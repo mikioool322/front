@@ -95,7 +95,7 @@ export default function Registration() {
     if (isFormValid()) {
 
       HttpService.post(
-        "http://tinder-sggw.herokuapp.com/api/user/",
+        "https://tinder-sggw.herokuapp.com/api/user/",
         {
           'userEmail': email,
           'password': password,

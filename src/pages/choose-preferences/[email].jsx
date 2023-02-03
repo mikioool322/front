@@ -43,7 +43,7 @@ export default function Choose() {
   const handleRegisterPreferences = () => {
     if (isFormValid()) {
       HttpService.post(
-        `http://tinder-sggw.herokuapp.com/api/user/${email}/preferences`,
+        `https://tinder-sggw.herokuapp.com/api/user/${email}/preferences`,
         {
           'minAge': minAge,
           'maxAge': maxAge,

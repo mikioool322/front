@@ -26,7 +26,7 @@ export default function Login() {
 
   const handleLogin = () => {
     HttpService.post(
-      "http://tinder-sggw.herokuapp.com/api/user/login",
+      "https://tinder-sggw.herokuapp.com/api/user/login",
       {
         'userEmail': email,
         'password': password
