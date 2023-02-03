@@ -1,4 +1,4 @@
-"use client"
+
 import axios, { AxiosPromise } from 'axios';
 
 const contentTypes = {

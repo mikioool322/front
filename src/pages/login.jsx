@@ -1,4 +1,4 @@
-'use client';
+
 import Banner from "@/components/Banner/Banner";
 import styles from "./login.module.css";
 import { useState } from "react";
